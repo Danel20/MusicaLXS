@@ -1,6 +1,6 @@
 {
 	"categorias" : [ "Categoria 1", "Categoria 2", "Categoria 3" ],
-	"fecha" : "2025-09-09",
+	"fecha" : "2025-11-01",
 	"himnos" : [
 		{
 			"tema" : "Dame de Beber",
@@ -857,4 +857,5 @@
 			"autor" : "Anónimo"
 		}
 	]
+
 }
