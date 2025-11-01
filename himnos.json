@@ -1,6 +1,6 @@
 {
 	"categorias" : [ "Categoria 1", "Categoria 2", "Categoria 3" ],
-	"fecha" : "2025-11-01",
+	"fecha" : "2025-11-01_1",
 	"himnos" : [
 		{
 			"tema" : "Dame de Beber",
@@ -823,7 +823,7 @@
 		},
 		{
 			"tema" : "Mas allá del horizonte",
-			"contenido" : "ESTROFA\n•1 • Más allá del hori•6zon•te y de la •8nubes•\nhabita un •1Rey•.\nMás allá de las es•6fe•ras, la luna y las es•8tre•llas\nvive •1Jehová•.\nSobre su Trono su•6bli•me, los sera•8fines•\nalabandole es•1tán1.\nY los 24 •6ancianos• dicen Santo Santo •8Santo•\nA su •1Majestad•.\n\nCORO\n\/\/Y su Gloria •6está• aquí... •8 •\nY su Gloria •m5está• sobre mí... •m10 •\nÉl me llena de •6su• Poder... •8 •\nSolo quiero •1adorarle• a Él.\/\/",
+			"contenido" : "ESTROFA\n•1 • Más allá del hori•6zon•te y de la •8nubes•\nhabita un •1Rey•.\nMás allá de las es•6fe•ras, la luna y las es•8tre•llas\nvive •1Jehová•.\nSobre su Trono su•6bli•me, los sera•8fines•\nalabandole es•1tán•.\nY los 24 •6ancianos• dicen Santo Santo •8Santo•\nA su •1Majestad•.\n\nCORO\n\/\/Y su Gloria •6está• aquí... •8 •\nY su Gloria •m5está• sobre mí... •m10 •\nÉl me llena de •6su• Poder... •8 •\nSolo quiero •1adorarle• a Él.\/\/",
 			"categoria" : ["Adoración", "Horizonte", "Rey", "Gloria"],
 			"nota" : "C",
 			"autor" : "Anónimo"
@@ -844,7 +844,7 @@
 		},
 		{
 			"tema" : "No es con espada",
-			"contenido" : "ESTROFA\n\/\/No es con •1espada• ni con ejercito.Mas con su •8Santo• •1Espíritu•.\/\/\n\nCORO\n\/\/Y esta •6Iglesia• se mueve •1ya•.\nY esta •8Iglesia• se mueve •1ya•.\/\/\nMas con su •8Santo• •1Espíritu•.",
+			"contenido" : "ESTROFA\n\/\/No es con •1espada• ni con ejercito.\nMas con su •8Santo• •1Espíritu•.\/\/\n\nCORO\n\/\/Y esta •6Iglesia• se mueve •1ya•.\nY esta •8Iglesia• se mueve •1ya•.\/\/\nMas con su •8Santo• •1Espíritu•.",
 			"categoria" : ["Júbilo"],
 			"nota" : "C",
 			"autor" : "Anónimo"
@@ -859,3 +859,4 @@
 	]
 
 }
+
