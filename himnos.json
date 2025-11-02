@@ -1,6 +1,6 @@
 {
 	"categorias" : [ "Categoria 1", "Categoria 2", "Categoria 3" ],
-	"fecha" : "2025-11-01_1",
+	"fecha" : "hoy1",
 	"himnos" : [
 		{
 			"tema" : "Dame de Beber",
@@ -855,8 +855,27 @@
 			"categoria" : ["Júbilo"],
 			"nota" : "C",
 			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Donde está el Espíritu de Dios",
+			"contenido" : "\/\/•1 • Donde •6está• el Espíritu de •1Dios•\nHay •8libertad•... Hay •1libertad•\nDonde •6está• el Espíritu de •1Dios•\n•8Allí• siempre hay •1libertad•\n\n\/\/Hay •8libertad•, hay •1libertad•\/\/\nDonde •6está• el Espíritu de •1Dios•\n•8Allí• siempre hay •1libertad•",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Libre, tú me hiciste libre",
+			"contenido" : "•1Libre•, tú me hiciste •6libre•\nTú me hiciste •8libre•, libre •1Señor•\nRotas fueron las •6cadenas•\nQue estaban •8atando• mi •1corazón•",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Cristo rompe las cadenas",
+			"contenido" : "•1Cristo• rompe las •6cadenas•\nCristo •8rompe• las •1cadenas•\nCristo rompe las •6cadenas•\nY nos •8dá• •1seguridad•",
+			"categoria" : ["C"],
+			"nota" : "C",
+			"autor" : "Anónimo"
 		}
 	]
-
 }
-
