@@ -1,6 +1,7 @@
 {
+	"version" : "1.74",
 	"categorias" : [ "Categoria 1", "Categoria 2", "Categoria 3" ],
-	"fecha" : "03-12-2025",
+	"fecha" : "09-12-2026",
 	"himnos" : [
 		{
 			"tema" : "Dame de Beber",
@@ -857,7 +858,7 @@
 			"autor" : "Anónimo"
 		},
 		{
-			"tema" : "Libre, tú me hiciste libre",
+			"tema" : "Libre tú me hiciste libre",
 			"contenido" : "•1Libre•, tú me hiciste •6libre•\nTú me hiciste •8libre•, libre •1Señor•\nRotas fueron las •6cadenas•\nQue estaban •8atando• mi •1corazón•",
 			"categoria" : ["Júbilo"],
 			"nota" : "C",
@@ -1317,6 +1318,76 @@
 			"categoria" : ["Júbilo"],
 			"nota" : "C",
 			"autor" : "Miel San Marcos"
+		},
+		{
+			"tema" : "Te pido la paz",
+			"contenido" : "ESTROFA\n\/\/•1Ayú•dame a mirar con tus •6ojos•.\nYo •m3quiero• sentir con tu •8corazón•.\nNo •m5quiero• vivir más siendo •10insensible•.\nA •m3tal• necesidad oh •8Jesucristo•\/\/\n\nCORO\nTe pido la •1paz• para •m10mi• ciudad.\nTe pido •m3perdón• por •8mi• ciudad.\nAhora me •m5humillo• y busco tu •m10rostro•\nA •m3quién• iré Señor si no a •8ti•\n\nTe pido la •1paz• para •m10mi• ciudad.\nTe pido •m3perdón• por •8mi• ciudad.\nAhora me •m5humillo• y busco tu •m10rostro•\nA •m3quién• iré •8Señor• si no a •1ti•",
+			"categoria" : ["Adoración"],
+			"nota" : "E",
+			"autor" : "Jaime Murray"
+		},
+		{
+			"tema" : "Vasija quebrantada",
+			"contenido" : "ESTROFA\nAlfa•1rero• estás aquí\nHoy con mucha •m10pena• vengo a Ti\nSé que hace •6mucho• no te hablo\nPero estás •m3heridas• ya no •8aguanto•\nPoco a •1poco• me aparte\nY de la •m10rueda• yo me alejé\nLa soledad ha •6sido• mi cobija\nMe hacen tanta •m3falta• tus •8caricias•...\n\nCORO\nSoy una •1vasija• quebrantada\nSoy un •m10instrumento• procesado\nY aunque no •6entienda• lo que pasa\nCristo le da •8forma• a este barro.\n\nSoy una •1vasija• quebrantada\nSoy un •m10instrumento• procesado\nY aunque no •6entienda• lo que pasa\nCristo le da •8forma• a este •1barro•.\n\nESTRIBILLO\n\/\/Soy lo que •m10Dios• quería ver\nLos golpes me •m5hicieron• entender\nQue para •6ser• inquebrantable\nPrimero •8Dios• tiene que quebrarme\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Hoy yo soy un altar",
+			"contenido" : "ESTROFA\n•1 • Que hermoso que estas •m5aquí•... •m10 •\nAquí tan cerca de •8mi•... •6 •\nEres todo lo que •m5quiero•... •m3 •\nMe desespero por •8ti•\n•1 • Sorprendeme una vez •m5mas•... •m10 •\nNo me conformo •8Señor•... •6 •\nEres todo lo que •m5anhelo•... •m3 •\nQuiero vivir para •8ti•\n\nPUENTE\n•6Déjame•... •5estar•... •m10aquí•\nJunto a •m5ti• mi •6Jesús•... •8 •\n\nCORO\n•1Hoy• yo soy un •m5altar•\nDonde puede •m10morar•Hoy tu •6dulce• •8presencia•\n•1Ven•, y toma todo de •m5mí•\nQue sea digno de •m10ti•\n•6Agradarte• yo •8quiero•... •1 •",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Dios está aquí (Mi amado descendió)",
+			"contenido" : "ESTROFA\n•1 • Mi amado des•cendió•… Se •1quedó•…\nConmigo para •8siempre•\nNo importando lo que •6soy•… me •1abrazó•\nY sobre mí hizo •8habitación•\n\nPUENTE\nÉl está •m3aquí•… Mi •1amado•.\nÉl está •m10aquí•… Nunca lo dejaré •8ir•.\n\nCORO\n\/\/Dios está •m3aquí•… •6 •\nSu dulce •1presencia•… está •8aquí•…\nMi •m3Salvador•… Mi •6gran• Amor…\nMi •1Padre•, mi único •8Rey•\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "A",
+			"autor" : "Miel San Marcos"
+		},
+		{
+			"tema" : "Hay una unción",
+			"contenido" : "ESTROFA\n•1 • Hay una •m3unción• •8aquí•\ncayendo •m5sobre• •m10mí•.\nMudán•m3dome•, •8cambiando• mi •1ser•.\nHay una •m3unción• •8aquí•\n cayendo •m5sobre• •m10mí•.\nLimpian•m3dome•, •8sanando• mi •1ser•.\n\nCORO\n\/\/Mi espíritu y mi •6alma• se está •8llenando•\nCon el •5Poder• del Espíritu •m10Santo•.\nMi •m3vida• nunca •8más• será •1igual•\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "G",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Dios ha sido bueno",
+			"contenido" : "CORO\/\/•1Dios•... •m10 • ha sido •m3buee•eee•8eno•\n...•m3Dios•… •8 • ha sido •1bueno•.\n•m5Dios• ha sido •6bueno•,\n•8Bueno• es •1Dios•\/\/\n\nESTROFA 1\n•6 • Su bondad me •m5alcanzó•\n•6 • Su amor me •m5rescató•\n•6 • Su gracia me •m5salvó•\nBueno es •8Dios•\n\n(REPETIR CORO)\n\nESTROFA 2\n•6 • Por eso •m5cantaré•\n•6 • Y siempre •m5alabaré•\n•6 • Y nunca •m5olvidaré•\nBueno es •8Dios•.",
+			"categoria" : ["Adoración"],
+			"nota" : "G",
+			"autor" : "Marcos Witt"
+		},
+		{
+			"tema" : "Bueno es Dios",
+			"contenido" : "ESTROFA\nBueno es •1Dios•, siempre •m10fiel•.\nPuso •6canto• nuevo en mi •8corazón•.\nBueno es •1Dios•, siempre •m10fiel•.\nEn la •6oscuridad• •8brillará• su amor.\nBueno es •6Dios•, bueno es •8Dios•.\nSiempre •1fiel•.\n\nESTROFA 1\nAun •8sin•... •m10merecerlo•\nsu sangre •6derramó• por •1mí•.\nMe •8llenó•... de su •m10Presencia•\ny ahora •6puedo• •8compartir•\nQue su •m3amor• nunca •8termina•\ny su •m3favor• siempre •8reinará•.\n\n(REPETIR CORO)\n\nESTROFA 2\nSi tú •8vas•... por el •m10valle•\ny hay •6sombras• •1alrededor•.\nDi •8adiós• al •m10temor•...\npues •6seguro• en Él •8estás•.\nEl •m3prometió• nunca •8dejarte• ni •m3abandonarte•.\nY Él no •8mentirá•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Ven conmigo a la casa de Dios",
+			"contenido" : "ESTROFA 1\n•1Mejor• es un •8día• en la •m10casa• de •6Dios•\nQue •1mil• años •8fuera• de •m10él•… •6 •\n•1Prefiero• un •8rincón• en la •m10casa• de •6Dios•\n\/\/Que •1todo• el •8palacio• de un •m10rey•… •6 •\/\/\n\nCORO\nVen •1conmigo• a la casa de •8Dios•\n•m10Celebraremos• juntos su •6amor•.\nHaremos •1fiesta• en honor de •8aquel• que nos •m10amó•... •6 •\nEstando •1aquí• en la casa de •8Dios•\n•m10Alegraremos• su •6corazón•.\nHaremos •1fiesta• en honor de •8aquel• que nos •m10amó•… •6 •\nEn la casa de •1Dios•... (SEGUIR SECUENCIA)\n\nESTROFA 2\n•1Arde• mi •8alma•, •m10arde• de •6amor•\nPor •1aquel• que •8me• dio la •m10vida•... •6 •\nPor •1eso• •8anhela• •m10mi• •6corazón•\n\/\/•1Anhela• de •8su• •m10compañía•… •6 •\/\/\n\n(REPETIR CORO)",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Danilo Montero"
+		},
+		{
+			"tema" : "Únenos Padre",
+			"contenido" : "CORO\n\/\/•1Únenos• Padre, si •6únenos• Padre\ncon •8lazos• •1inquebrantables•.\n•1Únenos• Padre, si •6únenos• Padre\ncon •8lazos• de amor •1fraternal•.\/\/\n\nESTROFA 1\n•1Solo• existe un Dios, •8único• •1Salvador•.\n•1Un• Espíritu Santo, •8dándonos• nueva •1canción•.\n•1Hechos• a imagen de Dios, •8comprado• por su Hijo •1fiel•.\n•1Llamado• para su gloria, •8victoria• tendremos en •1Él•.\n\nESTROFA 2\n•1Somos• familia de Dios, •8pueblo• escogido por •1Él•.\n•1Bautizados• en fuego, •8promesa• de su •1poder•.\n•1El• cielo se pone lindo, los •8campos• se envuelven en •1flor•.\n•1Mas• cantan los pajaritos •8cuando• se vive en •1amor•.",
+			"categoria" : ["Adoración"],
+			"nota" : "G",
+			"autor" : "Voceros de Cristo"
+		},
+		{
+			"tema" : "Ven Espíritu Santo Ven",
+			"contenido" : "ESTROFA\n\/\/Estoy •m10aquí• desesperado por •8ti•\nCon el •6corazón• sediento\nQue espera •5beber• de ti\/\/\n\nPRE-CORO\n•6Cuando• tu Gloria desciende a un lugar\n•8Toda• la tierra tiene que adorar\n•m3Resucitan• los muertos\nSe •6sanan• enfermos por •5su• Poder\n•6Queremos• de ti; llénanos de ti\n•8Espíritu• Santo, envuélvenos en ti.\n•m3Derrama• tu Gloria\nEsperamos por •5ti•.\n\nCORO\n\/\/•m10Ven•, ven, ven, Espíritu Santo\n•8Ven•, ven, ven, Espíritu Santo\n•6Ven•, ven, ven. Llena este •5lugar•\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Barak"
 		}
 	]
 }
