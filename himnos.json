@@ -1,7 +1,7 @@
 {
-	"version" : "1.74",
+	"version" : "1.745",
 	"categorias" : [ "Categoria 1", "Categoria 2", "Categoria 3" ],
-	"fecha" : "09-12-2026",
+	"fecha" : "11-12-2026",
 	"himnos" : [
 		{
 			"tema" : "Dame de Beber",
@@ -26,7 +26,7 @@
 		},
 		{
 			"tema" : "Cristo está aquí",
-			"contenido" : "•1Cris•to es•6tá• a•1quí•. Su Presencia •6sien•to en •1mí•.\nDale Honra, Poder y •m10Glo•ria. Oh Ale•m3lu•ya... •8 •\nA su •1ma•jestad alzo mis •6ma•nos.\nSeñor te a•1la•bo, te a•m10do•ro y te •8amo•. Ale•6luuuu••1ya•.",
+			"contenido" : "•1Cris•to es•6tá• •1aquí•. Su Presencia •6sien•to en •1mí•.\nDale Honra, Poder y •m10Glo•ria. Oh Ale•m3lu•ya... •8 •\nA su •1ma•jestad alzo mis •6ma•nos.\nSeñor te a•1la•bo, te a•m10do•ro y te •8amo•. Ale•6luuuu••1ya•.",
 			"categoria" : [ "Adoración", "Cristo", "Presencia" ],
 			"nota" : "F",
 			"autor" : "Miel San Marcos"
@@ -102,7 +102,7 @@
 			"autor" : "Anónimo"
 		},
 		{
-			"tema" : "Libre, yo soy Libre",
+			"tema" : "Libre yo soy Libre",
 			"contenido" : "CORO\n•1Libre• yo soy •m10libre•\nlas •6cadenas• del pecado han sido •8rotas•\n•1Libre• yo soy •m10libre•\npara •6cantar• para •8danzar• para •1gozar•\n\nESTROFA\n\/\/He •m10vencido•, al •m5enemigo•\npor la •m3sangre• de •8Jesucristo• yo soy •1libre•\/\/",
 			"categoria" : ["Júbilo", "Libre", "Vencido"],
 			"nota" : "G",
@@ -144,7 +144,7 @@
 			"autor" : "Anónimo"
 		},
 		{
-			"tema" : "Amén, amén, amén",
+			"tema" : "Amén amén amén",
 			"contenido" : "ESTROFA 1\n•1Amen•, amen, amen, amen, •m3amen•\nLas •8promesas• del Señor son siempre •1amen•\nCuando •m10leo• tu palabra canto •m3amen•\nA la •8orden• del Señor respondo •1amen•\n\nESTROFA 2\n•1Amen•, amen, amen, amen, •m3amen•\nMi •8vida• yo la rindo a tus •1pies•\nCuando •m10veo• tu gloria y tu •m3poder•\nEn mi •8alabanza• te canto amen •1amen•",
 			"categoria" : ["Adoración", "Amén", "Promesas"],
 			"nota" : "G",
@@ -931,21 +931,21 @@
 			"tema" : "Gozo en los cielos (Alístate)",
 			"contenido" : "ESTROFA 1\n\/\/•m10Alístate•, que pronto viene el Rey\/\/\n\/\/En •m3majestad•, ya pronto viene el Rey\/\/\n\/\/\/Él viene •5ya•\/\/\/\nEl Rey pronto •m10vendrá•\n\nESTROFA 2\n\/\/Me •m10encontrará• danzando a mi Rey\/\/\n\/\/Me •m3encontrará• alabando a mi Rey\/\/\n\/\/\/Me •5encontrará•\/\/\/\nVelando por mi •m10Rey•\n\nCORO\n\/\/Hay gozo en los •m10cielos•… Hay fiesta en la tierra\nSu novia ya está •m3lista•… El Rey pronto •5vendrá•\/\/\n\/\/Hay •m10gozo• en los cielos... Hay fiesta en la tierra\nSu novia ya está •m3lista•… El Rey pronto •5regresa•\/\/",
 			"categoria" : ["Júbilo"],
-			"nota" : "Am",
+			"nota" : "C",
 			"autor" : "Anónimo"
 		},
 		{
 			"tema" : "Quién lo diría (Voy a perder la compostura)",
 			"contenido" : "ESTROFA\n•m10Quién• lo •8diría• que •6yo• •5danzaría• en tu casa Señor\n•m10Quién• lo •8diría• que •6yo• •5abrazaría• tu gracia Señor\n\nCORO\nVoy a •m10perder• la compostura delante de •8ti•.\nVoy a •6cantar•, voy a danzar, voy a reír\nYo lo •5hago• solo para Ti\nVoy a •m10perder• la compostura delante de •8ti•.\nNo me •6importa• que me digan aleluya\nYo lo •5hago• solo para Ti\n\nESTRIBILLO\n\/\/Que me •m10importa• que critiquen, que no entiendan,\nque me digan que soy •8loco•\nSi •6yo•... lo •5hago• solo para Ti\/\/",
 			"categoria" : ["Júbilo"],
-			"nota" : "Am",
+			"nota" : "C",
 			"autor" : "Anónimo"
 		},
 		{
 			"tema" : "Él preparará mesa",
 			"contenido" : "ESTROFA\n•m10 • Reconocerán que Jesús es •1Dios•\n•5Toda• lengua lo •m10confesará•\nNo habrá duda ni •1argumento•\nEstá •5sentado• a la diestra del •m10Señor•\n\nPRE-CORO\n•6 • Se levanta •1hoy•... •5 • el canto de los •m10redimidos\n•6 • Jesús es •1Dios•... •5 • Mesías •m10escogido•\n\nCORO\n\/\/El prepa•6rará• mesa delante de mis •m10enemigos•\n•8Yo• cenaré •m3y• beberé\/\/",
 			"categoria" : ["Júbilo"],
-			"nota" : "Am",
+			"nota" : "C",
 			"autor" : "Anónimo"
 		},
 		{
@@ -1388,6 +1388,132 @@
 			"categoria" : ["Adoración"],
 			"nota" : "D",
 			"autor" : "Barak"
+		},
+		{
+			"tema" : "La tierra canta",
+			"contenido" : "ESTROFA\nSe •m10abren• los cielos\nSe •6escucha• un sonido •1celestial•… •m5 •\n•m10Unidas• las voces\nDe un •6pueblo• que te quiere •1adorar•... •m5 •\n\nPRE-CORO\nEl •m10Espíritu• de Dios\nse •6mueve• libre en este •1lugar•... •m5 •\nEl •m10Padre• alegre está\nAl •6ver• la novia unirse a •1adorar•... •m5 •\n\nCORO\n•m10 • \/\/La tierra canta... •6 • El cielo adora. •1 •\nY todos gritan… •8 • que tú eres Santo\/\/ •m10 •\n\n(REPETIR TODO DESDE INTRO)\n\nESTRIBILLO FINAL\n\n\/\/\/\/•m10Ángeles• se unen hoy\n•6cantando• a una sola voz\n•1Santo•… •8Santo•\/\/\/\/\n\n(REPETIR CORO)",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Barak"
+		},
+		{
+			"tema" : "Algo está pasando",
+			"contenido" : "ESTROFA 1\n\/\/Se escucha un •m10sonido•, desciende desde el •8cielo•,\ntrayendo •6libertad•, llenándonos con •8fuego•\/\/\n\nCORO\n\/\/Tú •6gloria• está en este •1lugar•, se •m10mueve• y me envuelve •8más•\/\/\n\nPUENTE\n\/\/\/\/•m10Algo• está pasando, los cielos se están •6abriendo•,\nángeles están cantando, demonios están •1huyendo•,\nno hay enfermedad, no hay •8cautividad•,\ndonde está el Espíritu de Dios ahí hay •m10libertad•\/\/\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "C#",
+			"autor" : "Oasis Ministry"
+		},
+		{
+			"tema" : "El Poderoso de Israel",
+			"contenido" : "ESTROFA 1\nY de •m10noche• cantaremos su poder\ncon alegria de •5corazón•\ncomo el que va con la flauta al monte de Jehová celebraremos su •m10poder•\n\nCORO\nEl es el •m10Poderoso• de Israel\nEl poderoso de •5Israel•\nsu voz se oirá, nadie lo detendrá al poderoso de •m10Israel•\n\nESTROFA 2\nLos •m10ojos• de los ciegos se abriran y ellos verán\nlos oidos de los sordos •5oiran•\nel cojo saltará, con el arpa danzará; la lengua de los mudos •m10cantará•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Marcos Barrientos"
+		},
+		{
+			"tema" : "Mira lo que hizo Dios",
+			"contenido" : "\/\/•1Mira• lo que hizo Dios\/\/\n\nSanó mi cuerpo. Tocó mi mente.\nMe salvó justo a tiempo •6y• yo le alabaré\n•1Es• el mismo de ayer... •8 •\nLe alabaremos. Mira lo que hizo •1Dios•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Carlos Alvarado"
+		},
+		{
+			"tema" : "Hay un gozo que no puedo parar",
+			"contenido" : "\/\/Hay un •1gozo• que no puedo parar\/\/\nHay un •6gozo• que no puedo parar\nHay un •1Gozo• que no puedo parar\n\nSon como •8rios• de agua viva... •6rios• de agua viva.\n\n•8Rios• de agua •11viva• que •3saltan• para •8vida• •1eterna•",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Carlos Alvarado"
+		},
+		{
+			"tema" : "Santo Santo Santo",
+			"contenido" : "•1Santo•, •8Santo•, •m10Santo•…\nMi •6cooo•ora•8zón• te •1adora•.\nMi •6cooo•ora•8zón• te •m5sabe• •m10decir•…\n•m3Santo• •8eres• •1tú•.",
+			"categoria" : ["Adoración"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "En mi corazón hay banderas de amor",
+			"contenido" : "ESTROFA\nEn mi •1corazón• hay banderas de amor\n•8Banderas• de amor, •1banderas• de amor.\nEn mi corazón hay banderas de amor\nPorque •8Cristo• ya vive en •1mí•.\n\nCORO\n•6Álzalas• más arriba que •1todos• vean.\nQue •8todos• vean, que •1todos• vean.\n•6Álzalas• más arriba que •1todos• vean.\nQue •8Cristo• ya vive en •1mí•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Yo tengo un Cristo de Poder",
+			"contenido" : "CORO\n•1 • \/\/Yo tengo un Cristo de •8Poder•\nQue de la tumba se •1levantó•\/\/\n\nESTROFA\n\/\/Se levantó, se •8levantó•\nDe la tumba se •1levantó•\/\/\n\nESTRIBILLO\n•1 • La sangre de Cristo tiene •8Poder•\nLa sangre de Cristo tiene •1Poder•\nLa sangre de Cristo tiene •8Poder•\nPorque mi Señor tiene •1Poder•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Tumbando Fortalezas",
+			"contenido" : "ESTROFA 1\n•1 •\/\/En el nombre de •8Jesús•\nvamos tumbando •1fortalezas•\/\/\n\/\/La fortaleza que •8levantó•\nEl enemigo de la •1Iglesia•\/\/\n\nESTROFA 2\n\/\/Las armas que •8tenemos•\nSon poderosas en •1Dios•\/\/\nPara tumbar la •8fortaleza•\nQue el enemigo •1levantó•\/\/\n\nESTRIBILLO\n\/\/Tumbando •8fortalezas•\nTumbando •1fortalezas•,\nTumbando •8fortalezas•\n•1Tumbando•…\/\/\n\nFINAL\n\/\/Desbara•8tando•… Tum•1bando•…\/\/\n\/\/Pam pam •8para•… Para rará •1rará•…\/\/",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Estamos de fiesta con Jesús",
+			"contenido" : "ESTROFA\n\/\/•1Estamos• de Fiesta con Jesús.\nAl cielo nos queremos •8ir•.\nY todos reunidos en la mesa\nEs Cristo quien va a •1servir•\/\/\n\nCORO\n\/\/Poderoso es nuestro •8Dios•,\nPoderoso es nuestro •1Dios•\/\/\n\nESTRIBILLO\n\/\/•1Poderoso•, •6Poderoso•.\n•8Poderoso• es nuestro •1Dios•\/\/",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Yo te busco",
+			"contenido" : "ESTROFA\n\/\/•1Yo• te •6buus••1cooo•\/\/ Con fuego •6en•… mi •1corazón•.\n\/\/•1Yo• te •6buus••1cooo•\/\/ Recibe •6mi• •1adoración•\n\nCORO\n\/\/Te •m5anhe•ee•6looo•. Te nece•m10siii•ii•8tooo•\nTe •m5aaa•aa•6mooo•… •m3Más•… Que a mi •1ser•\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Marcos Witt"
+		},
+		{
+			"tema" : "Si tú hablas con Dios",
+			"contenido" : "ESTROFA\nSi •1tú• hablas con Dios\nlas cosas •m10cambiarán• •m3orando•\nCualquier •6necesidad•\nDios la resolverá •1orando•.\n\nPRE-CORO\n•m10Meditad• en el Señor\nlas pruebas y el dolor •6orando•\n\nCORO\n\/\/Bendita •1oración•.\nHoy puedo hablar con •8Dios• •1orando•\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Anhelo más de tí Señor",
+			"contenido" : "CORO\n•1 •\/\/\/Anhelo más de ti •6Señor•...\/\/\/•1 •\nUn toque de •m3ti•… •8Anhelo• •1Señor•.\n\nESTROFA\n•m10 • Al acercarme… •6 • a tu Presencia\n•m5Encuentro• sanidad •8interior•.\n•m10Tu• mirada… •6 • me levanta\nY sólo •m3anhelo• estar cerca de •8ti•\nJunto a •6ti•, más de •8ti•, junto a •m10ti•, mas de •8ti•... •1 •\n\n(CORO)",
+			"categoria" : ["Adoración"],
+			"nota" : "A",
+			"autor" : "Miel San Marcos"
+		},
+		{
+			"tema" : "Ven ven ven Amado",
+			"contenido" : "CORO\n•m10Ven• ven ven Amado. •6Ven• ven ven Amado\n•8 • Celebremos nuestro •m10amor•.\n•m10Ven• ven ven Amado. •6Ven• ven ven Amado\n•8 • Dancemos juntos al •m10Señor•.\n\nESTROFA\n•m10Mi• amado (mi amado). •6Mi• amado (mi amado)\n•8 • Es el Hijo de •m10Adonai•.\n•m10Rey• de Reyes (Rey de Reyes)\n•6Rey• de Reyes (Rey de Reyes)\n•8 • De la tribu de •m10Judá•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Salmodiando"
+		},
+		{
+			"tema" : "Ya se oye el Shofar",
+			"contenido" : "ESTROFA\n\/\/Ya se •m10oye• el Shofar, en los •6cielos• se oirá.\nA su •8amado•, Él está •m10llamando•\/\/\n\nCORO\n•m10Ven• ven ven, ven Señor.\n•6Ven• ven ven, ven Señor.\n•8Esperandote•, está tu •m10novia•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Fuego purificador (Hay una llama)",
+			"contenido" : "ESTROFA\n\/\/Hay una •m10llama• que arde en mí\nCon gran •6Poder• que está en mi\nMe está •8quemando• su fuego Santo\nPuedo •5sentirlo• está •m10aquí•\/\/\n\nCORO\n•m10Fuego• (fuego). •6Fuego• del Señor\n•8Fuego• (fuego), fuego (fuego)\n•5Fuego• purificador.",
+			"categoria" : ["Júbilo"],
+			"nota" : "C",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Estoy confiando",
+			"contenido" : "Estoy •1confiando• Señor en •8tí•.\nTú eres •m3fiel• Señor... •8 • tan fiel a •1mí•\nNunca me has dejado aunque débil •6soy•\nEstoy •1confiando•... •8 • Señor en •1tí•.",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Todo es posible si puedes creer",
+			"contenido" : "ESTROFA\n•1 •\/\/Todo es •m3posible•... •8 •\nsi puedes •1creer•.\/\/\n\nCORO\n\/\/Fe mueve la •6mano• de Dios.\nFe en su Palabra •m5Viva•... •m10 •\nTodo es •m3posible•... •8 •\nsi puedes •1creer•.\/\/",
+			"categoria" : ["Adoración"],
+			"nota" : "D",
+			"autor" : "Anónimo"
 		}
 	]
 }
