@@ -1,7 +1,7 @@
 {
 	"version" : "1.745",
 	"categorias" : [ "Categoria 1", "Categoria 2", "Categoria 3" ],
-	"fecha" : "11-12-2026",
+	"fecha" : "12-12-2026",
 	"himnos" : [
 		{
 			"tema" : "Dame de Beber",
@@ -354,7 +354,7 @@
 			"autor" : "Jaime Murray"
 		},
 		{
-			"tema" : "Digno, Eternamente Digno",
+			"tema" : "Digno Eternamente Digno",
 			"contenido" : "ESTROFA\nNo •1tengo• nada para ofrecer.\n•m10Nada• que te pueda sorprender\nSólo un cora•m3zón• quebran•m5ta•do una y otra •8vez•.\nY no hay •1nada• que me enamore más\n•m10Nada• que me apasione más\nSólo tu Pre•m3sen•cia, sólo tu mi•m5ra•da me hace suspi•8rar•\nMe in•m3cli•no ante •m6ti•…\nRey que per•m5do•nas multitud de e•8rro•res\nMe in•m3cli•no ante •m6ti•…\n\nCORO\n\/\/•1Dig•no, eternamente… •m10Dig•no impresionante.\n•8Dig•no, sólo ante ti yo me in•6cli•no... •m6 •\/\/",
 			"categoria" : ["Adoración", "Digno", "Eternamente", "Corazón", "Quebrantado"],
 			"nota" : "E",
@@ -1342,7 +1342,7 @@
 		},
 		{
 			"tema" : "Dios está aquí (Mi amado descendió)",
-			"contenido" : "ESTROFA\n•1 • Mi amado des•cendió•… Se •1quedó•…\nConmigo para •8siempre•\nNo importando lo que •6soy•… me •1abrazó•\nY sobre mí hizo •8habitación•\n\nPUENTE\nÉl está •m3aquí•… Mi •1amado•.\nÉl está •m10aquí•… Nunca lo dejaré •8ir•.\n\nCORO\n\/\/Dios está •m3aquí•… •6 •\nSu dulce •1presencia•… está •8aquí•…\nMi •m3Salvador•… Mi •6gran• Amor…\nMi •1Padre•, mi único •8Rey•\/\/",
+			"contenido" : "ESTROFA\n•1 • Mi amado des•6cendió•… Se •1quedó•…\nConmigo para •8siempre•\nNo importando lo que •6soy•… me •1abrazó•\nY sobre mí hizo •8habitación•\n\nPUENTE\nÉl está •m3aquí•… Mi •1amado•.\nÉl está •m10aquí•… Nunca lo dejaré •8ir•.\n\nCORO\n\/\/Dios está •m3aquí•… •6 •\nSu dulce •1presencia•… está •8aquí•…\nMi •m3Salvador•… Mi •6gran• Amor…\nMi •1Padre•, mi único •8Rey•\/\/",
 			"categoria" : ["Adoración"],
 			"nota" : "A",
 			"autor" : "Miel San Marcos"
@@ -1514,8 +1514,13 @@
 			"categoria" : ["Adoración"],
 			"nota" : "D",
 			"autor" : "Anónimo"
+		},
+		{
+			"tema" : "Libre Dios me hizo libre",
+			"contenido" : "ESTROFA\n•m10Donde• el •6Espíritu• de Dios •1está•\nhay •m10libertad•, •6puedo• •1adorar•.\n•m10Todas• mis •6culpas• y maldades •1fueron•\nborradas en la •m10cruz•, •6libre• •1soy•.\n\nPUENTE\n•6Perdonado• soy, •8solo• por tu amor\nNo hay •m10más• condenación\n•8Cristo• me libertó...\n\nCORO\n\/\/•m10Caen•, las murallas •6caen•\nLas cadenas •1Dios• destruyó, libre •8soy•\n•m10Libre•, Dios me hizo •6libre•\nEl venció la •1muerte• por mí, libre •8soy•\/\/\nLibre •m10soy•... •6 •... •1 •...\n\n(REPETIR TODO DESDE ESTROFA)\n\nESTRIBILLO\n•m10 • Se rompen •6 • cadenas, •1 • no soy •8esclavo• más... •m10 •\nEn Cristo •6 • soy libre, •1 • no hay más •8condenación•.\n\n(REPETIR CORO)",
+			"categoria" : ["Adoración"],
+			"nota" : "C",
+			"autor" : "Miel San Marcos"
 		}
 	]
 }
-
-

@@ -1,17 +1,44 @@
 {
   "listas": [
     {
-      "nota": "Init 1",
-      "temas": ["El Espíritu de Dios está en este lugar", "Renuevame", "Dame de Beber", "Él es mi paz"]
+      "nota": "Init Adoración 1",
+      "temas": ["Renuevame", "Dame de Beber", "Recibe toda la Gloria", "Si te tengo a tí"]
     },
     {
-      "nota": "Init 2",
-      "temas": ["Tu eres Todopoderoso (La única razón)", "Agnus Dei (Aleluya)"]
+      "nota": "Init Adoración 2",
+      "temas": ["Cristo está aquí", "Digno Eternamente Digno", "Aquí estoy", "Entra en la Presencia"]
     },
     {
-      "nota": "Init 3",
-      "temas": ["Agnus Dei (Aleluya)", "Porque tu Dios es Amor"]
+      "nota": "Init Adoración 3",
+      "temas": ["Espiritu de Dios llena mi vida", "Incomprensible Amor", "Te adoramos", "Tu fidelidad es grande"]
+    },
+    {
+      "nota": "Init Adoración 4",
+      "temas": ["Dios está aquí", "Presencia de Dios ven a mí", "Exquisita Presencia", "Yo me rindo a Él"]
+    },
+    {
+      "nota": "Init Adoración 5",
+      "temas": ["El Espíritu de Dios está en este lugar", "Pablo y Silas", "Cuan Grande es Dios", "Cuan grande es Él"]
+    },
+    {
+      "nota": "Init Júbilo 1",
+      "temas": ["El gozo que tengo yo", "Aquel que caminó", "Alguien está aquí", "En el hogar necesitas a Jesús", "Envía tu poder"]
+    },
+    {
+      "nota": "Init Júbilo 2",
+      "temas": ["Ven ven ven Espíritu Divino", "Envía tu poder", "Va bajando ya", "Fe mueve la mano de Dios", "Este gozo no va salir", "Yo siento paz y gozo"]
+    },
+    {
+      "nota": "Init Júbilo 3",
+      "temas": ["Ninguna religión puede cambiar tu ser", "No es con espada", "No hay Dios tan grande como tú", "No puede estar triste un corazón que alaba a Cristo", "Quién como Jehová", "Si alguien te pregunta por ahí"]
+    },
+    {
+      "nota": "Init Júbilo 4",
+      "temas": ["Tu eres Todopoderoso (La única razón)", "Abre mis ojos oh Cristo", "Agnus Dei (Aleluya)", "Te doy Gloria"]
+    },
+    {
+      "nota": "Init Júbilo 5",
+      "temas": ["Música del Cielo", "Te Alabaré", "Los muros caerán", "Toda la noche sin parar"]
     }
   ]
-
 }
