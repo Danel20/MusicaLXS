@@ -1,7 +1,7 @@
 {
 	"version" : "1.745",
 	"categorias" : [ "Categoria 1", "Categoria 2", "Categoria 3" ],
-	"fecha" : "12-12-2026",
+	"fecha" : "13-12-2026",
 	"himnos" : [
 		{
 			"tema" : "Dame de Beber",
@@ -152,7 +152,7 @@
 		},
 		{
 			"tema" : "Dios te adoro a tí",
-			"contenido" : "ESTROFA\nYo •m10entro• al lugar mas •8alto•\nA •6través• del •8cordero• de •m10Dios•\nY vengo tan solo a •8adorarte•\nYo •6vengo• a •8honrar• al YO •SOY•\n\nCORO\n\/\/Dios te •1adoro• a •8ti•\nTe •m3adoro• a •m10ti•\/\/\n\/\/Pues tu nombre es •6Santo•, •8Santo•, •m10Dios•\/\/",
+			"contenido" : "ESTROFA\nYo •m10entro• al lugar mas •8alto•\nA •6través• del •8cordero• de •m10Dios•\nY vengo tan solo a •8adorarte•\nYo •6vengo• a •8honrar• al YO •m10SOY•\n\nCORO\n\/\/Dios te •1adoro• a •8ti•\nTe •m3adoro• a •m10ti•\/\/\n\/\/Pues tu nombre es •6Santo•, •8Santo•, •m10Dios•\/\/",
 			"categoria" : ["Adoración", "Dios", "Adoro", "Lugar", "Entro"],
 			"nota" : "G",
 			"autor" : "Anónimo"
@@ -943,7 +943,7 @@
 		},
 		{
 			"tema" : "Él preparará mesa",
-			"contenido" : "ESTROFA\n•m10 • Reconocerán que Jesús es •1Dios•\n•5Toda• lengua lo •m10confesará•\nNo habrá duda ni •1argumento•\nEstá •5sentado• a la diestra del •m10Señor•\n\nPRE-CORO\n•6 • Se levanta •1hoy•... •5 • el canto de los •m10redimidos\n•6 • Jesús es •1Dios•... •5 • Mesías •m10escogido•\n\nCORO\n\/\/El prepa•6rará• mesa delante de mis •m10enemigos•\n•8Yo• cenaré •m3y• beberé\/\/",
+			"contenido" : "ESTROFA\n•m10 • Reconocerán que Jesús es •1Dios•\n•5Toda• lengua lo •m10confesará•\nNo habrá duda ni •1argumento•\nEstá •5sentado• a la diestra del •m10Señor•\n\nPRE-CORO\n•6 • Se levanta •1hoy• ... •5 • el canto de los •m10redimidos•\n•6 • Jesús es •1Dios•... •5 • Mesías •m10escogido•\n\nCORO\n\/\/El prepa•6rará• mesa delante de mis •m10enemigos•\n•8Yo• cenaré •m3y• beberé\/\/",
 			"categoria" : ["Júbilo"],
 			"nota" : "C",
 			"autor" : "Anónimo"
@@ -964,7 +964,7 @@
 		},
 		{
 			"tema" : "Que me falte todo menos tu Presencia",
-			"contenido" : "ESTROFA 1\n•1 •En mi •6proceso• todos se •m10fueron•.\nEn mi •6desespero• los que estaban •m10huyeron•.\n•6Pensé• que sola •m10estaría• y que •8todo• •6acabaría•\nque sería mi •8final•.\nPRE-CORO\n•8 • Más en el •m10proceso• pude •6comprender•\nque el amor de Dios nunca deja de •8ser•.\nQue el dijo que conmigo •m10estaría• y su •6Presencia•\nme •8acompañaría•.\n\nCORO\nQue me falte •6todo•... •8 • menos su •1Presencia•.\nQue se vayan •6todos•... •8 • menos el •m10Espíritu• Santo.\nQue me quiten •6todo• pero algo •1jamás• podrán •m10lograr\nQue yo •m3deje• de •8adorar• y •1Glorificar•.\n\nESTROFA 2\n•6Ahora• no me siento •m10sola•.\nSu •6amor• de día y de noche me •m10acompaña•.\n(PRE-CORO Y LUEGO EL CORO)\n\nPUENTE\n•m3 • Él prometió estar conmigo hasta el •6fin•.\nDe su amor no •m10dudaré•. Él es mi amigo •8fiel•.\n•m3 • En mi debilidad él me •6sustentará•.\nSu espíritu fuerzas me •m10da•. Él conmigo •8va•.",
+			"contenido" : "ESTROFA 1\n•1 •En mi •6proceso• todos se •m10fueron•.\nEn mi •6desespero• los que estaban •m10huyeron•.\n•6Pensé• que sola •m10estaría• y que •8todo• •6acabaría•\nque sería mi •8final•.\nPRE-CORO\n•8 • Más en el •m10proceso• pude •6comprender•\nque el amor de Dios nunca deja de •8ser•.\nQue el dijo que conmigo •m10estaría• y su •6Presencia•\nme •8acompañaría•.\n\nCORO\nQue me falte •6todo•... •8 • menos su •1Presencia•.\nQue se vayan •6todos•... •8 • menos el •m10Espíritu• Santo.\nQue me quiten •6todo• pero algo •1jamás• podrán •m10lograr•\nQue yo •m3deje• de •8adorar• y •1Glorificar•.\n\nESTROFA 2\n•6Ahora• no me siento •m10sola•.\nSu •6amor• de día y de noche me •m10acompaña•.\n(PRE-CORO Y LUEGO EL CORO)\n\nPUENTE\n•m3 • Él prometió estar conmigo hasta el •6fin•.\nDe su amor no •m10dudaré•. Él es mi amigo •8fiel•.\n•m3 • En mi debilidad él me •6sustentará•.\nSu espíritu fuerzas me •m10da•. Él conmigo •8va•.",
 			"categoria" : ["Adoración"],
 			"nota" : "F",
 			"autor" : "Anónimo"
@@ -1083,7 +1083,7 @@
 		},
 		{
 			"tema" : "YAHWEH se manifestará",
-			"contenido" : "ESTROFA\n\/\/Se •m10siente• tu gloria en este •m5lugar•.\nAlgo grande va •6pasar•. Se activa lo •8sobrenatural•\/\/\n\nCORO\n\/\/•6YAHWEH•, •8Rafah•, •5Elohim•, •m10Shaddai•\n•6Jireh•, •8Adonai• se •m10manifestará•\/\/\n\n(REPETIR TODO EL HIMNO Y LUEGO ESTRIBILLO 1)\n\nESTRIBILLO 1\n\/\/•m10 • Si le adoras Él se •8manifestará•.\nSi le llamas Él se •6manifestará•\nSi le buscas Él se manifesta•6ráá•ááá•8áá•… •m10\/\/\n\nESTRIBILLO 2\n\/\/•m10YAHWEH• se manifestará. •8Jireh• se manifestará.\n•6Rafah• se manifestará. Se manifesta•6ráá•ááá•8áá•… •m10\/\/",
+			"contenido" : "ESTROFA\n\/\/Se •m10siente• tu gloria en este •m5lugar•.\nAlgo grande va •6pasar•. Se activa lo •8sobrenatural•\/\/\n\nCORO\n\/\/•6YAHWEH•, •8Rafah•, •5Elohim•, •m10Shaddai•\n•6Jireh•, •8Adonai• se •m10manifestará•\/\/\n\n(REPETIR TODO EL HIMNO Y LUEGO ESTRIBILLO 1)\n\nESTRIBILLO 1\n\/\/•m10 • Si le adoras Él se •8manifestará•.\nSi le llamas Él se •6manifestará•\nSi le buscas Él se manifesta•6ráá•ááá•8áá•… •m10 •\/\/\n\nESTRIBILLO 2\n\/\/•m10YAHWEH• se manifestará. •8Jireh• se manifestará.\n•6Rafah• se manifestará. Se manifesta•6ráá•ááá•8áá•… •m10•\/\/",
 			"categoria" : ["Adoración"],
 			"nota" : "G",
 			"autor" : "Oasis Ministry"
@@ -1520,6 +1520,20 @@
 			"contenido" : "ESTROFA\n•m10Donde• el •6Espíritu• de Dios •1está•\nhay •m10libertad•, •6puedo• •1adorar•.\n•m10Todas• mis •6culpas• y maldades •1fueron•\nborradas en la •m10cruz•, •6libre• •1soy•.\n\nPUENTE\n•6Perdonado• soy, •8solo• por tu amor\nNo hay •m10más• condenación\n•8Cristo• me libertó...\n\nCORO\n\/\/•m10Caen•, las murallas •6caen•\nLas cadenas •1Dios• destruyó, libre •8soy•\n•m10Libre•, Dios me hizo •6libre•\nEl venció la •1muerte• por mí, libre •8soy•\/\/\nLibre •m10soy•... •6 •... •1 •...\n\n(REPETIR TODO DESDE ESTROFA)\n\nESTRIBILLO\n•m10 • Se rompen •6 • cadenas, •1 • no soy •8esclavo• más... •m10 •\nEn Cristo •6 • soy libre, •1 • no hay más •8condenación•.\n\n(REPETIR CORO)",
 			"categoria" : ["Adoración"],
 			"nota" : "C",
+			"autor" : "Miel San Marcos"
+		},
+		{
+			"tema" : "De los montes",
+			"contenido" : "ESTROFA 1\n\/\/•1 • Llenas nuestro hogar de •m10danza•... •6 •\nDe tu gozo la •8ciudad•... •1 •\nLa injusticia tú que•m10brantas•... •6 •\nsi se humilla tu •8heredad•\/\/\n\nCORO\n\/\/De los •1montes• •8 • a los •6valles•... ya se •m10escucha• •m5 •\nEl •6clamor• •8 •...\nDe los •1cielos• •8 • a los •6pueblos•... ya te •m10cantan• •m5 •\ncon •6Amor• •8 •\/\/\n\nESTROFA 2\n•1 • Tu luz vence las •m10tinieblas•... •6 •\nal andar ante la •8cruz•... •1 •\nLena tu Gloria la •m10tierra•... •6 •\ncomo el mar en •8plenitud•.",
+			"categoria" : ["Júbilo"],
+			"nota" : "D",
+			"autor" : "Marcos Barrientos"
+		},
+		{
+			"tema" : "Eres Dios (Miel San Marcos)",
+			"contenido" : "ESTROFA\nBende•1ciré• •8 • •m10 • tu •6nombre• oh •1Dios•. •8 • •m10 • •6 •\nEn medio •8de• la congre•6gación• te •m10cantaré• •6 • •8 •\n•6Exal••1taré• •8 • •m10 • tu •6Nombre• oh •1Dios• •8 • •m10 • •6 •\nEn medio •8de• tu pueblo •6yo• te •1cantaré•.\n\nPUENTE\n•m10Oh• Señor tu •6conoces• bien lo •1profundo• de mi •8corazón•.\nY •m10el• anhelo que hay •6dentro• de mí es •1poder• adorarte •8Señor•.\n\nCORO\n\/\/Eres •1Dios•, eres Rey y •8Señor•, eres Dios\nYo te •6adoro• a tí, te adoro\nTodos •m10verán• y sabrán que eres •8tú• Señor sobre •6Todo•\/\/\nTu •8eres• •6Dios• •m10 • •8 •\n\nFINAL\n\/\/Eres mi •6Dios•. Eres mi •m10Dios•. Eres mi •8Dios•. Eres mi •m5Dios•.\/\/\nTu eres mi •6Dios•...",
+			"categoria" : ["Júbilo"],
+			"nota" : "D",
 			"autor" : "Miel San Marcos"
 		}
 	]
