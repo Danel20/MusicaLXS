@@ -1535,6 +1535,13 @@
 			"categoria" : ["Júbilo"],
 			"nota" : "D",
 			"autor" : "Miel San Marcos"
+		},
+		{
+			"tema" : "Le llaman guerrero",
+			"contenido" : "ESTROFA\nCuentan de un •m10Dios• que hace •6maravillas•\ndándole •8poder• a su •m10pueblo•.\nGracias a Él conquistaron •6reinos•, tomaron •8ciudades• en su •m10Nombre•.\n\nCORO\n\/\/Le llaman •m10Guerrero•. Le llaman •6Guerrero•.\nLe llaman •8Guerrero•, Jehová de los •m10ejercitos•.\/\/",
+			"categoria" : ["Júbilo"],
+			"nota" : "G",
+			"autor" : "Carlos Alvarado"
 		}
 	]
 }
