@@ -1,0 +1,10 @@
+{
+  "Personas": [
+    { "Nombre": "Juan" },
+    { "Nombre": "Jose" }
+  ],
+  "Lugares": [
+    { "Pais": "Honduras" },
+    { "Pais": "Guatemala" }
+  ]
+}
