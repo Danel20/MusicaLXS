@@ -310,13 +310,45 @@ class _VersionCheckWrapperState extends State<VersionCheckWrapper> {
     _checkVersion();
   }
 
+  bool isNewerVersion(String local, String remote) {
+    List<int> localParts =
+    local.split('.').map((e) => int.tryParse(e) ?? 0).toList();
+
+    List<int> remoteParts =
+    remote.split('.').map((e) => int.tryParse(e) ?? 0).toList();
+
+    int maxLength =
+    localParts.length > remoteParts.length
+        ? localParts.length
+        : remoteParts.length;
+
+    while (localParts.length < maxLength) {
+      localParts.add(0);
+    }
+
+    while (remoteParts.length < maxLength) {
+      remoteParts.add(0);
+    }
+
+    for (int i = 0; i < maxLength; i++) {
+      if (remoteParts[i] > localParts[i]) {
+        return true;
+      } else if (remoteParts[i] < localParts[i]) {
+        return false;
+      }
+    }
+
+    return false;
+  }
+
   Future<void> _checkVersion() async {
     try {
-      final response = await http.get(Uri.parse('https://raw.githubusercontent.com/Danel20/Proyectos_SEBIPCA/main/AsistenciXS_SEBIPCA_version.json'));
+      final url1 = 'https://raw.githubusercontent.com/Danel20/Proyectos_SEBIPCA/main/AsistenciXS_SEBIPCA_version.json';
+      final response = await http.get(Uri.parse(url1));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         remoteVersion = data['version'] ?? asistencixs_sebipca_version;
-        if (remoteVersion != asistencixs_sebipca_version) {
+        if (isNewerVersion(asistencixs_sebipca_version, remoteVersion)) {
           setState(() {
             needsUpdate = true;
             isLoading = false;
@@ -1261,13 +1293,13 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
 
   void _cycleStatus(Person person, DateTime date) async {
     if (!isEditMode) return;
-    /*
+
     if (DateFormat('yyyy-MM-dd').format(date) != DateFormat('yyyy-MM-dd').format(DateTime.now())) {
 
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Solo puedes editar el día de hoy"), duration: Duration(seconds: 1)));
       return;
     }
-     */
+
     final dateKey = DateFormat('yyyy-MM-dd').format(date);
     setState(() {
       final current = person.attendance[dateKey] ?? AttendanceStatus.none;
