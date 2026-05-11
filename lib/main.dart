@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -21,11 +22,26 @@ const String supabaseUrl = 'https://yhmasnxfrzzbqdhgqbhj.supabase.co';
 const String supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlobWFzbnhmcnp6YnFkaGdxYmhqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYwNzUsImV4cCI6MjA5MTM0MjA3NX0.n-5TUpfB11thBVsa9m--4qAeKBVSdOkd8IuHZs9rBsM';
 const String asistencixs_sebipca_version = "1.0.4";
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
     await initializeDateFormatting('es_ES', null);
-    await Supabase.initialize(url: supabaseUrl, anonKey: supabaseAnonKey);
+    await Supabase.initialize(
+        url: supabaseUrl,
+        anonKey: supabaseAnonKey,
+        realtimeClientOptions: const RealtimeClientOptions(
+          timeout: Duration(seconds: 20),
+        ),
+
+    );
+    /*
+
+    Supabase.instance.client.realtime.setAuth(
+      supabaseAnonKey,
+    );
+    Supabase.instance.client.realtime.connect();
+
+     */
   } catch (e) {
     debugPrint("Error inicializando Supabase y localización: $e");
   }
@@ -34,6 +50,56 @@ void main() async {
 
 enum AttendanceStatus { none, present, absent, reported }
 enum AppSection { alimentacion, lavado }
+
+/*
+class RealtimeService {
+  static final RealtimeService _instance =
+  RealtimeService._internal();
+
+  factory RealtimeService() => _instance;
+
+  RealtimeService._internal();
+
+  final client = Supabase.instance.client;
+
+  RealtimeChannel? _channel;
+
+  void start(VoidCallback onChange) {
+    _channel ??=
+    client.channel("global-db")
+      ..onPostgresChanges(
+        event: PostgresChangeEvent.all,
+        schema: "public",
+        callback: (_) => onChange(),
+      )
+      ..subscribe();
+  }
+
+  void stop() {
+    _channel?.unsubscribe();
+    _channel = null;
+  }
+}
+
+*/
+
+class AttendanceRepository {
+  final client = Supabase.instance.client;
+
+  Future<void> save(
+      String personId,
+      DateTime date,
+      AttendanceStatus status,
+      ) async {
+    final key = DateFormat("yyyy-MM-dd").format(date);
+
+    await client.from("attendance").upsert({
+      "person_id": personId,
+      "date": key,
+      "status": status.name,
+    });
+  }
+}
 
 class Person {
   final String id;
@@ -521,11 +587,74 @@ class GroupsScreen extends StatefulWidget {
 class _GroupsScreenState extends State<GroupsScreen> {
   List<AttendanceGroup> groups = [];
   bool isLoading = true;
+  RealtimeChannel? groupsChannel;
+
+  Timer? _refreshDebounce;
 
   @override
   void initState() {
     super.initState();
     _refresh();
+    _subscribeRealtime();
+  }
+
+  void _subscribeRealtime() {
+    groupsChannel?.unsubscribe();
+
+    groupsChannel =
+        SupabaseService.client.channel(
+          'groups-${widget.section.name}',
+        );
+
+    groupsChannel!
+        .onPostgresChanges(
+      event: PostgresChangeEvent.all,
+      schema: 'public',
+      table: 'groups',
+      filter: PostgresChangeFilter(
+        type: PostgresChangeFilterType.eq,
+        column: 'section',
+        value: widget.section == AppSection.alimentacion
+            ? 'alimentacion'
+            : 'lavado',
+      ),
+      callback: (_) => _safeRefresh(_refresh),
+    )
+        .onPostgresChanges(
+      event: PostgresChangeEvent.all,
+      schema: 'public',
+      table: 'people',
+      callback: (_) => _safeRefresh(_refresh),
+    )
+        .onPostgresChanges(
+      event: PostgresChangeEvent.all,
+      schema: 'public',
+      table: 'attendance',
+      callback: (_) => _safeRefresh(_refresh),
+    )
+        .onPostgresChanges(
+      event: PostgresChangeEvent.all,
+      schema: 'public',
+      table: 'daily_comments',
+      callback: (_) => _safeRefresh(_refresh),
+    )
+        .subscribe();
+  }
+
+  @override
+  void dispose() {
+    _refreshDebounce?.cancel();
+    groupsChannel?.unsubscribe();
+    super.dispose();
+  }
+
+  void _safeRefresh(Future<void> Function() fn) {
+    _refreshDebounce?.cancel();
+
+    _refreshDebounce = Timer(
+      const Duration(milliseconds: 250),
+          () => fn(),
+    );
   }
 
   Future<void> _refresh() async {
@@ -738,8 +867,10 @@ class WeeklySummaryScreen extends StatelessWidget {
             final name = "${person.firstName} ${person.lastName}";
             final formattedDate = DateFormat('dd/MM').format(date);
 
+            String mealType = group.name;
+
             result.putIfAbsent(name, () => []);
-            result[name]!.add(formattedDate);
+            result[name]!.add("$formattedDate ($mealType)");
           }
         }
       }
@@ -809,6 +940,8 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
   late List<Person> currentPeople;
   Map<String, String> _dailyComments = {};
 
+  RealtimeChannel? attendanceChannel;
+
   late LinkedScrollControllerGroup _verticalScrollControllers;
   late ScrollController _nameVerticalController;
   late ScrollController _attendanceVerticalController;
@@ -816,6 +949,17 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
   late LinkedScrollControllerGroup _horizontalScrollControllers;
   late ScrollController _headerHorizontalController;
   late ScrollController _attendanceHorizontalController;
+
+  Timer? _refreshDebounce;
+
+  void _safeRefresh(Future<void> Function() fn) {
+    _refreshDebounce?.cancel();
+
+    _refreshDebounce = Timer(
+      const Duration(milliseconds: 250),
+          () => fn(),
+    );
+  }
 
   @override
   void initState() {
@@ -834,6 +978,48 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
     _attendanceHorizontalController = _horizontalScrollControllers.addAndGet();
 
     _loadComments();
+    _subscribeAttendanceRealtime();
+  }
+
+  void _subscribeAttendanceRealtime() {
+    attendanceChannel?.unsubscribe();
+
+    attendanceChannel =
+        SupabaseService.client.channel(
+          'attendance-${widget.group.id}',
+        );
+
+    attendanceChannel!
+        .onPostgresChanges(
+      event: PostgresChangeEvent.all,
+      schema: 'public',
+      table: 'attendance',
+      callback: (_) => _safeRefresh(_refreshPeople),
+    )
+        .onPostgresChanges(
+      event: PostgresChangeEvent.all,
+      schema: 'public',
+      table: 'daily_comments',
+      filter: PostgresChangeFilter(
+        type: PostgresChangeFilterType.eq,
+        column: 'section',
+        value: widget.group.section,
+      ),
+      callback: (_) => _safeRefresh(_loadComments),
+    )
+        .onPostgresChanges(
+      event: PostgresChangeEvent.all,
+      schema: 'public',
+      table: 'people',
+
+      filter: PostgresChangeFilter(
+        type: PostgresChangeFilterType.eq,
+        column: 'group_id',
+        value: widget.group.id,
+      ),
+      callback: (_) => _safeRefresh(_refreshPeople),
+    )
+        .subscribe();
   }
 
   Future<void> _loadComments() async {
@@ -847,6 +1033,9 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
 
   @override
   void dispose() {
+    _refreshDebounce?.cancel();
+    attendanceChannel?.unsubscribe();
+
     _nameVerticalController.dispose();
     _attendanceVerticalController.dispose();
     _headerHorizontalController.dispose();
@@ -1294,26 +1483,37 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
   void _cycleStatus(Person person, DateTime date) async {
     if (!isEditMode) return;
 
+    final key = DateFormat('yyyy-MM-dd').format(date);
+    final old = person.attendance[key] ?? AttendanceStatus.none;
+/*
     if (DateFormat('yyyy-MM-dd').format(date) != DateFormat('yyyy-MM-dd').format(DateTime.now())) {
 
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Solo puedes editar el día de hoy"), duration: Duration(seconds: 1)));
       return;
     }
-
-    final dateKey = DateFormat('yyyy-MM-dd').format(date);
+*/
     setState(() {
-      final current = person.attendance[dateKey] ?? AttendanceStatus.none;
-      if (current == AttendanceStatus.none) {
-        person.attendance[dateKey] = AttendanceStatus.present;
-      } else if (current == AttendanceStatus.present) {
-        person.attendance[dateKey] = AttendanceStatus.absent;
-      } else if (current == AttendanceStatus.absent) {
-        person.attendance[dateKey] = AttendanceStatus.reported;
+      if (old == AttendanceStatus.none) {
+        person.attendance[key] = AttendanceStatus.present;
+      } else if (old == AttendanceStatus.present) {
+        person.attendance[key] = AttendanceStatus.absent;
+      } else if (old == AttendanceStatus.absent) {
+        person.attendance[key] = AttendanceStatus.reported;
       } else {
-        person.attendance[dateKey] = AttendanceStatus.none;
+        person.attendance[key] = AttendanceStatus.none;
       }
     });
-    await SupabaseService.saveAttendance(person.id, date, person.attendance[dateKey]!);
+    try {
+      await SupabaseService.saveAttendance(
+        person.id,
+        date,
+        person.attendance[key]!,
+      );
+    } catch (_) {
+      setState(() {
+        person.attendance[key] = old;
+      });
+    }
   }
 
   Widget _buildDateSelectors() {
