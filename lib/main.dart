@@ -20,7 +20,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 const String supabaseUrl = 'https://yhmasnxfrzzbqdhgqbhj.supabase.co';
 const String supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlobWFzbnhmcnp6YnFkaGdxYmhqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYwNzUsImV4cCI6MjA5MTM0MjA3NX0.n-5TUpfB11thBVsa9m--4qAeKBVSdOkd8IuHZs9rBsM';
-const String asistencixs_sebipca_version = "1.0.4";
+const String asistencixs_sebipca_version = "1.0.5";
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -844,33 +844,89 @@ class _GroupsScreenState extends State<GroupsScreen> {
   }
 }
 
-class WeeklySummaryScreen extends StatelessWidget {
+class WeeklySummaryScreen extends StatefulWidget {
   final List<AttendanceGroup> allGroups;
 
   const WeeklySummaryScreen({super.key, required this.allGroups});
 
-  List<DateTime> _getWeekDates(DateTime base) {
-    final start = base.subtract(Duration(days: base.weekday - 1));
-    return List.generate(7, (i) => start.add(Duration(days: i)));
+  @override
+  State<WeeklySummaryScreen> createState() =>
+      _WeeklySummaryScreenState();
+}
+
+class _WeeklySummaryScreenState
+    extends State<WeeklySummaryScreen> {
+
+  Map<String, String> comments = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _loadComments();
   }
 
-  Map<String, List<String>> _getAbsences(List<DateTime> dates) {
+  Future<void> _loadComments() async {
+    final data =
+    await SupabaseService.fetchDailyComments('alimentacion');
+
+    if (mounted) {
+      setState(() {
+        comments = data;
+      });
+    }
+  }
+
+  List<DateTime> _getWeekDates(DateTime base) {
+    final start =
+    base.subtract(Duration(days: base.weekday - 1));
+
+    return List.generate(
+      7,
+          (i) => start.add(Duration(days: i)),
+    );
+  }
+
+  Map<String, List<String>> _getAbsences(
+      List<DateTime> dates,
+      ) {
     Map<String, List<String>> result = {};
 
-    for (var group in allGroups) {
+    for (var group in widget.allGroups) {
+
+      String mealType = "";
+
+      final lower = group.name.toLowerCase();
+
+      if (lower.contains("desayuno")) {
+        mealType = "Desayuno";
+      } else if (lower.contains("almuerzo")) {
+        mealType = "Almuerzo";
+      } else if (lower.contains("cena")) {
+        mealType = "Cena";
+      } else {
+        mealType = group.name;
+      }
+
       for (var person in group.people) {
         for (var date in dates) {
-          final key = DateFormat('yyyy-MM-dd').format(date);
+
+          final key =
+          DateFormat('yyyy-MM-dd').format(date);
+
           final status = person.attendance[key];
 
           if (status == AttendanceStatus.absent) {
-            final name = "${person.firstName} ${person.lastName}";
-            final formattedDate = DateFormat('dd/MM').format(date);
 
-            String mealType = group.name;
+            final name =
+                "${person.firstName} ${person.lastName}";
+
+            final formattedDate =
+            DateFormat('dd/MM').format(date);
 
             result.putIfAbsent(name, () => []);
-            result[name]!.add("$formattedDate ($mealType)");
+
+            result[name]!
+                .add("$formattedDate ($mealType)");
           }
         }
       }
@@ -879,48 +935,149 @@ class WeeklySummaryScreen extends StatelessWidget {
     return result;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final now = DateTime.now();
+  List<Widget> _buildCommentsSection(
+      String title,
+      List<DateTime> dates,
+      ) {
 
-    final currentWeek = _getWeekDates(now);
-    final lastWeek = _getWeekDates(now.subtract(const Duration(days: 7)));
+    List<Widget> items = [];
 
-    final currentAbsences = _getAbsences(currentWeek);
-    final lastAbsences = _getAbsences(lastWeek);
+    for (var date in dates) {
 
-    return Scaffold(
-      appBar: AppBar(title: const Text("Resumen Semanal")),
-      body: ListView(
-        padding: const EdgeInsets.all(12),
-        children: [
+      final key =
+      DateFormat('yyyy-MM-dd').format(date);
 
-          const Text("Semana Actual", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          ..._buildList(currentAbsences),
+      final comment = comments[key];
 
-          const SizedBox(height: 20),
+      if (comment != null && comment.trim().isNotEmpty) {
 
-          const Text("Semana Anterior", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          ..._buildList(lastAbsences),
-        ],
+        items.add(
+          Card(
+            child: ListTile(
+              leading: const Icon(
+                Icons.sticky_note_2,
+                color: Colors.teal,
+              ),
+              title: Text(
+                DateFormat('EEEE dd/MM', 'es')
+                    .format(date),
+              ),
+              subtitle: Text(comment),
+            ),
+          ),
+        );
+      }
+    }
+
+    if (items.isEmpty) {
+      items.add(
+        const Text("Sin comentarios"),
+      );
+    }
+
+    return [
+      const SizedBox(height: 20),
+
+      Text(
+        title,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-    );
+
+      const SizedBox(height: 10),
+
+      ...items,
+    ];
   }
 
-  List<Widget> _buildList(Map<String, List<String>> data) {
+  List<Widget> _buildList(
+      Map<String, List<String>> data,
+      ) {
+
     if (data.isEmpty) {
       return [const Text("Sin faltas 🎉")];
     }
 
     return data.entries.map((e) {
+
       return Card(
         child: ListTile(
-          leading: const Icon(Icons.cancel, color: Colors.red),
+          leading: const Icon(
+            Icons.cancel,
+            color: Colors.red,
+          ),
           title: Text(e.key),
-          subtitle: Text("Fechas: ${e.value.join(", ")}"),
+          subtitle: Text(
+            "Fechas: ${e.value.join(", ")}",
+          ),
         ),
       );
     }).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    final now = DateTime.now();
+
+    final currentWeek = _getWeekDates(now);
+
+    final lastWeek = _getWeekDates(
+      now.subtract(const Duration(days: 7)),
+    );
+
+    final currentAbsences =
+    _getAbsences(currentWeek);
+
+    final lastAbsences =
+    _getAbsences(lastWeek);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Resumen Semanal"),
+      ),
+
+      body: ListView(
+        padding: const EdgeInsets.all(12),
+
+        children: [
+
+          const Text(
+            "Semana Actual",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          ..._buildList(currentAbsences),
+
+          ..._buildCommentsSection(
+            "Comentarios Semana Actual",
+            currentWeek,
+          ),
+
+          const SizedBox(height: 20),
+
+          const Text(
+            "Semana Anterior",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          ..._buildList(lastAbsences),
+
+          ..._buildCommentsSection(
+            "Comentarios Semana Anterior",
+            lastWeek,
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -1485,13 +1642,13 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
 
     final key = DateFormat('yyyy-MM-dd').format(date);
     final old = person.attendance[key] ?? AttendanceStatus.none;
-/*
+
     if (DateFormat('yyyy-MM-dd').format(date) != DateFormat('yyyy-MM-dd').format(DateTime.now())) {
 
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Solo puedes editar el día de hoy"), duration: Duration(seconds: 1)));
       return;
     }
-*/
+
     setState(() {
       if (old == AttendanceStatus.none) {
         person.attendance[key] = AttendanceStatus.present;
