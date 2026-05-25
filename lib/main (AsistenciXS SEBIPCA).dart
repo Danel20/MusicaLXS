@@ -20,7 +20,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 const String supabaseUrl = 'https://yhmasnxfrzzbqdhgqbhj.supabase.co';
 const String supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlobWFzbnhmcnp6YnFkaGdxYmhqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NjYwNzUsImV4cCI6MjA5MTM0MjA3NX0.n-5TUpfB11thBVsa9m--4qAeKBVSdOkd8IuHZs9rBsM';
-const String asistencixs_sebipca_version = "1.0.5";
+const String asistencixs_sebipca_version = "1.0.6";
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -459,7 +459,7 @@ class UpdateScreen extends StatelessWidget {
             Text("Versión actual: $asistencixs_sebipca_version | Nueva: $remoteVersion", style: const TextStyle(color: Colors.white70, fontSize: 16)),
             const SizedBox(height: 40),
             ElevatedButton.icon(
-              onPressed: () => launchUrl(Uri.parse('https://github.com/Danel20/Proyectos_SEBIPCA')),
+              onPressed: () => launchUrl(Uri.parse('https://github.com/Danel20/Proyectos_SEBIPCA/releases/APK%26Windows')),
               icon: const Icon(Icons.download),
               label: const Text("Descargar Actualización"),
               style: ElevatedButton.styleFrom(fixedSize: const Size(280, 60)),
@@ -497,12 +497,6 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
       obscureText: _obscureText,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        suffixIcon: GestureDetector(
-          onTapDown: (_) => setState(() => _obscureText = false),
-          onTapUp: (_) => setState(() => _obscureText = true),
-          onTapCancel: () => setState(() => _obscureText = true),
-          child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-        ),
       ),
     );
   }
@@ -515,29 +509,81 @@ class LandingPage extends StatelessWidget {
     final controller = TextEditingController();
     final String sectionId = section == AppSection.alimentacion ? "alimentacion" : "lavado";
 
-    showDialog(
+    bool showPassword = false;
+    Future<void> entrar() async {
+      bool isValid =
+      await SupabaseService.verifySectionPassword(
+        sectionId,
+        controller.text,
+      );
+
+      if (isValid) {
+        if (context.mounted) {
+          Navigator.pop(context);
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) =>
+                  GroupsScreen(section: section),
+            ),
+          );
+        }
+      } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Contraseña incorrecta"),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      }
+    }
+    await showDialog(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text("Contraseña ${section == AppSection.alimentacion ? 'Alimentación' : 'Lavado'}"),
-        content: PasswordInputField(controller: controller, hintText: "Ingrese la contraseña"),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text("Cancelar")),
-          ElevatedButton(
-            onPressed: () async {
-              bool isValid = await SupabaseService.verifySectionPassword(sectionId, controller.text);
-              if (isValid) {
-                if (context.mounted) {
-                  Navigator.pop(ctx);
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => GroupsScreen(section: section)));
-                }
-              } else {
-                if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Contraseña incorrecta"), backgroundColor: Colors.red));
-              }
-            },
-            child: const Text("Entrar"),
-          )
-        ],
-      ),
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (ctx, setStateDialog) {
+            return AlertDialog(
+              title: const Text("Contraseña"),
+              content: TextField(
+                controller: controller,
+                obscureText: !showPassword,
+                textInputAction: TextInputAction.done,
+                onSubmitted: (_) => entrar(),
+                decoration: const InputDecoration(
+                  hintText: "Ingrese la contraseña",
+                ),
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(
+                    showPassword
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    setStateDialog(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                ),
+
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  child: const Text("Cancelar"),
+                ),
+
+                ElevatedButton(
+                  onPressed: entrar,
+                  child: const Text("Entrar"),
+                ),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 
@@ -594,8 +640,15 @@ class _GroupsScreenState extends State<GroupsScreen> {
   @override
   void initState() {
     super.initState();
-    _refresh();
+    _loadInitialData1();
     _subscribeRealtime();
+  }
+  Future<void> _loadInitialData1() async {
+    await _refresh();
+
+    if (mounted) {
+      _checkBirthdays();
+    }
   }
 
   void _subscribeRealtime() {
@@ -667,7 +720,7 @@ class _GroupsScreenState extends State<GroupsScreen> {
         isLoading = false;
       });
       await StorageService.saveLocalJson(groups);
-      _checkBirthdays();
+
     } catch (e) {
       setState(() => isLoading = false);
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
@@ -983,6 +1036,7 @@ class _WeeklySummaryScreenState
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
+          color: Colors.black54,
         ),
       ),
 
@@ -1043,36 +1097,62 @@ class _WeeklySummaryScreenState
         padding: const EdgeInsets.all(12),
 
         children: [
+          const Text(
+            "SEMANA ACTUAL",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
 
           const Text(
-            "Semana Actual",
+            "Faltas",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              color: Colors.black54,
             ),
           ),
 
           ..._buildList(currentAbsences),
 
           ..._buildCommentsSection(
-            "Comentarios Semana Actual",
+            "Comentarios",
             currentWeek,
           ),
 
-          const SizedBox(height: 20),
+
+          Divider(
+            color: Colors.orange, // Color suave para que no compita con el texto
+            thickness: 1.0,          // Grosor de la línea
+            height: 70.0,            // Espacio total que ocupa el widget (incluye margen arriba y abajo)
+            indent: 2.0,            // Margen inicial (izquierdo)
+            endIndent: 2.0,         // Margen final (derecho)
+          ),
 
           const Text(
-            "Semana Anterior",
+            "SEMANA ANTERIOR",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
+
+          const Text(
+            "Faltas",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              color: Colors.black54,
             ),
           ),
 
           ..._buildList(lastAbsences),
 
           ..._buildCommentsSection(
-            "Comentarios Semana Anterior",
+            "Comentarios",
             lastWeek,
           ),
         ],
