@@ -459,7 +459,7 @@ class UpdateScreen extends StatelessWidget {
             Text("Versión actual: $asistencixs_sebipca_version | Nueva: $remoteVersion", style: const TextStyle(color: Colors.white70, fontSize: 16)),
             const SizedBox(height: 40),
             ElevatedButton.icon(
-              onPressed: () => launchUrl(Uri.parse('https://github.com/Danel20/Proyectos_SEBIPCA')),
+              onPressed: () => launchUrl(Uri.parse('https://github.com/Danel20/Proyectos_SEBIPCA/releases/APK%26Windows')),
               icon: const Icon(Icons.download),
               label: const Text("Descargar Actualización"),
               style: ElevatedButton.styleFrom(fixedSize: const Size(280, 60)),
