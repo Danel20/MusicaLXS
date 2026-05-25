@@ -1036,6 +1036,7 @@ class _WeeklySummaryScreenState
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
+          color: Colors.black54,
         ),
       ),
 
@@ -1096,36 +1097,62 @@ class _WeeklySummaryScreenState
         padding: const EdgeInsets.all(12),
 
         children: [
+          const Text(
+            "SEMANA ACTUAL",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
 
           const Text(
-            "Semana Actual",
+            "Faltas",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              color: Colors.black54,
             ),
           ),
 
           ..._buildList(currentAbsences),
 
           ..._buildCommentsSection(
-            "Comentarios Semana Actual",
+            "Comentarios",
             currentWeek,
           ),
 
-          const SizedBox(height: 20),
+
+          Divider(
+            color: Colors.orange, // Color suave para que no compita con el texto
+            thickness: 1.0,          // Grosor de la línea
+            height: 70.0,            // Espacio total que ocupa el widget (incluye margen arriba y abajo)
+            indent: 2.0,            // Margen inicial (izquierdo)
+            endIndent: 2.0,         // Margen final (derecho)
+          ),
 
           const Text(
-            "Semana Anterior",
+            "SEMANA ANTERIOR",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
+
+          const Text(
+            "Faltas",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              color: Colors.black54,
             ),
           ),
 
           ..._buildList(lastAbsences),
 
           ..._buildCommentsSection(
-            "Comentarios Semana Anterior",
+            "Comentarios",
             lastWeek,
           ),
         ],
