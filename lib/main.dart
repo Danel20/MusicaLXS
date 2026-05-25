@@ -497,12 +497,6 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
       obscureText: _obscureText,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        suffixIcon: GestureDetector(
-          onTapDown: (_) => setState(() => _obscureText = false),
-          onTapUp: (_) => setState(() => _obscureText = true),
-          onTapCancel: () => setState(() => _obscureText = true),
-          child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-        ),
       ),
     );
   }
@@ -515,29 +509,81 @@ class LandingPage extends StatelessWidget {
     final controller = TextEditingController();
     final String sectionId = section == AppSection.alimentacion ? "alimentacion" : "lavado";
 
-    showDialog(
+    bool showPassword = false;
+    Future<void> entrar() async {
+      bool isValid =
+      await SupabaseService.verifySectionPassword(
+        sectionId,
+        controller.text,
+      );
+
+      if (isValid) {
+        if (context.mounted) {
+          Navigator.pop(context);
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) =>
+                  GroupsScreen(section: section),
+            ),
+          );
+        }
+      } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Contraseña incorrecta"),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      }
+    }
+    await showDialog(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text("Contraseña ${section == AppSection.alimentacion ? 'Alimentación' : 'Lavado'}"),
-        content: PasswordInputField(controller: controller, hintText: "Ingrese la contraseña"),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text("Cancelar")),
-          ElevatedButton(
-            onPressed: () async {
-              bool isValid = await SupabaseService.verifySectionPassword(sectionId, controller.text);
-              if (isValid) {
-                if (context.mounted) {
-                  Navigator.pop(ctx);
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => GroupsScreen(section: section)));
-                }
-              } else {
-                if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Contraseña incorrecta"), backgroundColor: Colors.red));
-              }
-            },
-            child: const Text("Entrar"),
-          )
-        ],
-      ),
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (ctx, setStateDialog) {
+            return AlertDialog(
+              title: const Text("Contraseña"),
+              content: TextField(
+                controller: controller,
+                obscureText: !showPassword,
+                textInputAction: TextInputAction.done,
+                onSubmitted: (_) => entrar(),
+                decoration: const InputDecoration(
+                  hintText: "Ingrese la contraseña",
+                ),
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(
+                    showPassword
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    setStateDialog(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                ),
+
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  child: const Text("Cancelar"),
+                ),
+
+                ElevatedButton(
+                  onPressed: entrar,
+                  child: const Text("Entrar"),
+                ),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 
@@ -594,8 +640,15 @@ class _GroupsScreenState extends State<GroupsScreen> {
   @override
   void initState() {
     super.initState();
-    _refresh();
+    _loadInitialData1();
     _subscribeRealtime();
+  }
+  Future<void> _loadInitialData1() async {
+    await _refresh();
+
+    if (mounted) {
+      _checkBirthdays();
+    }
   }
 
   void _subscribeRealtime() {
@@ -667,7 +720,7 @@ class _GroupsScreenState extends State<GroupsScreen> {
         isLoading = false;
       });
       await StorageService.saveLocalJson(groups);
-      _checkBirthdays();
+
     } catch (e) {
       setState(() => isLoading = false);
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
