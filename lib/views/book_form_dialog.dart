@@ -222,32 +222,28 @@ class _BookFormDialogState extends State<BookFormDialog> {
                           alignment: Alignment.centerRight,
                           child: ElevatedButton(
                             onPressed: () {
-                              setState(() {
-                                _titleC.text = data['title'] ?? '';
-                                _editorialC.text = data['editorial'] ?? '';
-                                _yearC.text = data['year'] ?? '';
+                              //1. Extraer los datos primero
+                              final title = data['title'] ?? '';
+                              final editorial = data['editorial'] ?? '';
+                              final year = data['year'] ?? '';
+                              List<Author> parsed = _parseAuthorsFromApi(data['author'] ?? '');
 
-                                if (data['author'] != null && data['author']!.isNotEmpty) {
-                                  List<Author> parsed = _parseAuthorsFromApi(data['author']!);
+                              // 2. CERRAR el diálogo PRIMERO para desmontar el ListView de la API
+                              Navigator.of(ctx).pop();
 
-                                  // Limpiar controladores viejos
-                                  for (var c in _firstNameControllers) {
-                                    c.dispose();
-                                  }
-                                  for (var c in _lastNameControllers) {
-                                    c.dispose();
-                                  }
-                                  _firstNameControllers.clear();
-                                  _lastNameControllers.clear();
+                              // 3. Actualizar el estado del formulario principal después de cerrar
+                              Future.microtask(() {
+                                if (!mounted) return;
+                                setState(() {
+                                  _titleC.text = title;
+                                  _editorialC.text = editorial;
+                                  _yearC.text = year;
 
-                                  // Generar nuevos controladores con la info procesada de la API
-                                  for (var author in parsed) {
-                                    _firstNameControllers.add(TextEditingController(text: author.firstName));
-                                    _lastNameControllers.add(TextEditingController(text: author.lastName));
-                                  }
-                                }
+                                  // Importante: Crear controladores nuevos
+                                  _firstNameControllers = parsed.map((a) => TextEditingController(text: a.firstName)).toList();
+                                  _lastNameControllers = parsed.map((a) => TextEditingController(text: a.lastName)).toList();
+                                });
                               });
-                              Navigator.pop(ctx);
                             },
                             child: const Text("Aplicar"),
                           ),
@@ -265,23 +261,31 @@ class _BookFormDialogState extends State<BookFormDialog> {
     );
   }
 
-  // Generador de Autocompletado Genérico Inteligente (+3 letras, sin tildes)
   Widget _buildAutocompleteField(TextEditingController controller, String label, Iterable<String> Function(String) searchLogic) {
     return Autocomplete<String>(
       optionsBuilder: (TextEditingValue textEditingValue) {
         if (textEditingValue.text.length < 3) return const Iterable<String>.empty();
         return searchLogic(textEditingValue.text);
       },
-      onSelected: (String selection) => controller.text = selection,
+      // Eliminamos el initialValue y el listener manual dentro del builder
+      onSelected: (String selection) {
+        controller.text = selection;
+      },
       fieldViewBuilder: (context, textController, focusNode, onFieldSubmitted) {
-        if(textController.text.isEmpty && controller.text.isNotEmpty) {
-          textController.text = controller.text;
-        }
-        textController.addListener(() { controller.text = textController.text; });
+        // Usar SchedulerBinding asegura que la actualización ocurra después del frame actual
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (controller.text != textController.text && textController.text.isEmpty) {
+            textController.text = controller.text;
+          }
+        });
+
         return TextFormField(
           controller: textController,
           focusNode: focusNode,
           decoration: InputDecoration(labelText: label),
+          onChanged: (val) {
+            controller.text = val;
+          },
         );
       },
     );
@@ -328,8 +332,15 @@ class _BookFormDialogState extends State<BookFormDialog> {
               const Align(alignment: Alignment.centerLeft, child: Text("Autores", style: TextStyle(fontWeight: FontWeight.bold))),
 
               // Segmento Dinámico de Multi-Autores conectado a sus Controladores
-              ...List.generate(_firstNameControllers.length, (index) {
+              // Segmento Dinámico de Multi-Autores
+// Segmento Dinámico de Multi-Autores corregido para estabilidad en Web
+              ...Iterable<int>.generate(_firstNameControllers.length).map((index) {
+                // Verificamos que el índice aún sea válido antes de renderizar la fila
+                if (index >= _firstNameControllers.length) return const SizedBox.shrink();
+
                 return Row(
+                  // Usamos una llave que dependa del objeto controlador, no del índice
+                  key: ObjectKey(_firstNameControllers[index]),
                   children: [
                     Expanded(
                       child: TextFormField(
@@ -347,16 +358,18 @@ class _BookFormDialogState extends State<BookFormDialog> {
                     if (_firstNameControllers.length > 1)
                       IconButton(
                         icon: const Icon(Icons.remove_circle, color: Colors.red),
-                        onPressed: () => setState(() {
-                          _firstNameControllers[index].dispose();
-                          _lastNameControllers[index].dispose();
-                          _firstNameControllers.removeAt(index);
-                          _lastNameControllers.removeAt(index);
-                        }),
+                        onPressed: () {
+                          setState(() {
+                            // Eliminamos sin dispose inmediato para evitar error de renderizado
+                            _firstNameControllers.removeAt(index);
+                            _lastNameControllers.removeAt(index);
+                          });
+                        },
                       ),
                   ],
                 );
-              }),
+              }).toList().toList(),
+
               TextButton.icon(
                 icon: const Icon(Icons.add),
                 label: const Text("Agregar Autor"),

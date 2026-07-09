@@ -106,26 +106,6 @@ class DataService {
     } catch (_) {}
     if (!results.containsKey('Google Books')) results['Google Books'] = {};
 
-    // 3. API: Open Library Volumes (Estructura de respaldo alternativa)
-    try {
-      final url = Uri.parse('https://openlibrary.org/api/volumes/brief/isbn/$isbn.json');
-      final res = await http.get(url).timeout(timeoutDuration1);
-      if (res.statusCode == 200) {
-        final data = jsonDecode(res.body);
-        if (data.containsKey('records') && data['records'].isNotEmpty) {
-          final record = data['records'].values.first;
-          final dataBook = record['data'];
-          results['Open Library Volumes'] = {
-            'title': dataBook['title'] ?? '',
-            'author': (dataBook['authors'] as List?)?.map((a) => a['name']).join(', ') ?? '',
-            'editorial': (dataBook['publishers'] as List?)?.map((p) => p['name']).join(', ') ?? '',
-            'year': dataBook['publish_date'] ?? '',
-          };
-        }
-      }
-    } catch (_) {}
-    if (!results.containsKey('Open Library Volumes')) results['Open Library Volumes'] = {};
-
     return results;
   }
 }

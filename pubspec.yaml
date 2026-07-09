@@ -68,6 +68,7 @@ dependencies:
   google_mlkit_text_recognition: ^0.13.0 # Nota: ML Kit es para Android/iOS
   linked_scroll_controller: ^0.2.0
   diacritic: ^0.1.5
+  camera: ^0.11.2
 
 
 dev_dependencies:
